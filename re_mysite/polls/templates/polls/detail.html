@@ -1,5 +1,11 @@
 {{ question }}
 
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>
+
 <p>
     <a href="{% url 'index' %}">indexへ</a>
 </p>
