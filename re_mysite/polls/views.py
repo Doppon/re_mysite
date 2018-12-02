@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Question
-
+from django.http import Http404
 
 def index(request):
     question_list = Question.objects.order_by('-pub_date')
@@ -12,6 +12,10 @@ def index(request):
 
 
 def detail(request, question_id):
+    try:
+        question = Question.objects.get(pk=question_id)
+    except Question.DoesNotExist:
+        raise Http404("Question does not exist.")
     return HttpResponse("You're looking at question %s." % question_id)
 
 def results(request, question_id):
