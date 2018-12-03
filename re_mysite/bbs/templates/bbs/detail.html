@@ -1,0 +1,11 @@
+{{ topic }}
+
+<ul>
+{% for post in topic.post_set.all %}
+    <li>{{ post.text }}</li>
+{% endfor %}
+</ul>
+
+<p>
+    <a href="{% url 'bbs:index' %}">indexへ</a>
+</p>
