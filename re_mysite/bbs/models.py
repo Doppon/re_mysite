@@ -4,6 +4,8 @@ from django.utils import timezone
 class Topic(models.Model):
     title = models.CharField(max_length=100)
     created_at = models.DateTimeField('登録日時', default=timezone.now)
+    def __str__(self):
+        return self.title
 
 
 class Post(models.Model):
@@ -11,3 +13,5 @@ class Post(models.Model):
     name = models.CharField(max_length=50)
     text = models.CharField(max_length=500)
     created_at = models.DateTimeField('登録日時', default=timezone.now)
+    def __str__(self):
+        return self.text
