@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 import datetime
 
+# Question: 投票項目
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date-published')
@@ -11,6 +12,7 @@ class Question(models.Model):
         return self.question_text
 
 
+# Choice: 選択肢
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
