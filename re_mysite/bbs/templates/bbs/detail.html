@@ -1,8 +1,8 @@
-{{ topic }}
+<h1>{{ topic }}</h1>
 
 <ul>
 {% for post in topic.post_set.all %}
-    <li>{{ post.text }}</li>
+    <li>{{ post.text }} by {{ post.name }}</li>{{ post.created_at }}<br><br>
 {% endfor %}
 </ul>
 
