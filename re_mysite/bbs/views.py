@@ -5,7 +5,11 @@ from django.http import HttpResponseRedirect
 
 from .models import Topic, Post
 
-from .forms import NameForm
+from django import forms
+
+
+class NameForm(forms.Form):
+	your_name = forms.CharField(label='お名前', max_length=30)
 
 
 def index(request):
