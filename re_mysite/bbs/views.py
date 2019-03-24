@@ -12,3 +12,6 @@ def index(request):
 def detail(request, topic_id):
     topic = get_object_or_404(Topic, pk=topic_id)
     return render(request, 'bbs/detail.html', {'topic': topic})
+
+def page(request):
+    return render(request, 'bbs/page.html')
