@@ -20,4 +20,11 @@ def detail(request, topic_id):
     return render(request, 'bbs/detail.html', {'topic': topic})
 
 def form_page(request):
-    return render(request, 'bbs/form_page.html')
+    if request.method == 'POST':
+        form = NameForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/thanks/')
+    else:
+        form = NameForm()
+    
+    return render(request, 'bbs/form_page.html', {'form': form})
