@@ -5,6 +5,9 @@ from django.http import HttpResponseRedirect
 
 from .models import Topic, Post
 
+from .forms import NameForm
+
+
 def index(request):
     topic_list = Topic.objects.all()
     context = {
