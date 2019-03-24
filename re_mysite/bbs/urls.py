@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('<int:topic_id>/', views.detail, name='detail'),
 
-    path('page', views.page, name="page"),
+    path('form_page', views.form_page, name="form_page"),
 ]
