@@ -5,4 +5,6 @@ app_name = 'bbs'
 urlpatterns = [
     path('', views.index, name='index'),
     path('<int:topic_id>/', views.detail, name='detail'),
+
+    path('page', views.page, name="page")
 ]
