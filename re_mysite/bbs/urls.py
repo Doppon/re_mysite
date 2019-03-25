@@ -7,4 +7,5 @@ urlpatterns = [
     path('<int:topic_id>/', views.detail, name='detail'),
 
     path('form_page', views.form_page, name="form_page"),
+    path('thanks_page', views.thanks_page, name="thanks_page"),
 ]

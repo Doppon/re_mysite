@@ -27,8 +27,14 @@ def form_page(request):
     if request.method == 'POST':
         form = NameForm(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect('/thanks/')
+            return HttpResponseRedirect('thanks_page')
     else:
         form = NameForm()
     
     return render(request, 'bbs/form_page.html', {'form': form})
+
+def thanks_page(request):
+    data = {
+        'your_name': request.POST.get('your_name')
+    }
+    return render(request, 'bbs/thanks_page.html', {'data': data})
