@@ -7,6 +7,7 @@ from .models import Topic, Post
 
 from django import forms
 
+import logging
 
 class NameForm(forms.Form):
 	your_name = forms.CharField(label='お名前', max_length=30)
@@ -27,6 +28,7 @@ def form_page(request):
     if request.method == 'POST':
         form = NameForm(request.POST)
         if form.is_valid():
+            logging.debug(form.cleaned_data)
             return HttpResponseRedirect('thanks_page')
     else:
         form = NameForm()
